@@ -43,6 +43,7 @@ bool isAnagram(string s1, string s2)
       {
         tempChar = arrAlphabet[row][1];
         tempUpper = arrAlphabet[row][0];
+	break;
       }
     } // tempChar is now lowercase
     //tempUpper is uppercase
@@ -86,9 +87,63 @@ bool isAnagram(string s1, string s2)
 /* Precondition: s1 is a valid string that may contain upper or lower case alphabets, no spaces or special characters
  * Postcondition: Returns true if s1 is a palindrome, false otherwise
  *You should provide a recursive solution*/
-bool isPalindrome(const string s1){
+bool isPalindrome(const string s1)
+{
 
-  return true;
+bool isPalindrome(const string s1)
+{
+  char arrAlphabet[26][2] = {{'A','a'}, {'B','b'}, {'C','c'}, {'D','d'},
+                    {'E','e'}, {'F','f'}, {'G','g'}, {'H','h'},
+                    {'I','i'}, {'J','j'}, {'K','k'}, {'L','l'},
+                    {'M','m'}, {'N','n'}, {'O','o'}, {'P','p'},
+                    {'Q','q'}, {'R','r'}, {'S','s'}, {'T','t'},
+                    {'U','u'}, {'V','v'}, {'W','w'}, {'X','x'},
+                    {'Y','y'}, {'Z','z'}};
+
+    int strlength = s1.length();
+    string tempReversedStr = s1; // this string will be scanned 
+                                 //reversedly in a for loop
+
+    for (int i = 0, j = strlength - 1; i < strlength; i++,j--) 
+	    //iterate through entire string by char[i]
+    {
+      char c = s1[i]; //iterates through s1, char by char
+
+      /* The following for loop transforms an upper case
+         letter into a lower case letter
+         It will help with the comparison process
+      */
+      char tempLower = c;
+      char tempUpper;
+
+      for (int row = 0; row < 26; row++) //scan through the alphabet array
+      {
+        if (tempLower == arrAlphabet[row][0] || 
+			tempLower == arrAlphabet[row][1])
+        {
+          tempLower = arrAlphabet[row][1]; // lowercase of char s1[i]
+          tempUpper = arrAlphabet[row][0]; // uppercase of char s1[i]
+          break;
+        }
+      } // tempLoweris now lowercase
+        // tempUpper is now uppercase
+
+      /*
+        Reversed comparison Process
+      */
+
+      if (tempReversedStr[j] == tempLower || 
+		      tempReversedStr[j] == tempUpper)
+      {
+        continue;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    // if loop successfuly completes, therefore it is palindrome
+    return true;
 }
 
 
