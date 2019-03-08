@@ -45,22 +45,26 @@ bool isAnagram(string s1, string s2)
         tempUpper = arrAlphabet[row][0];
       }
     } // tempChar is now lowercase
-    //char c can be upper or lowercase, not given yet
+    //tempUpper is uppercase
+
+    //we will iterate through the string to find the 
+    //occurrances of either lowercase or upper case char [i] from
+    //string 1
+    
+    char tempLower = tempChar;
     for (int k = 0; k < strlength; k++)
     {
-      if (tempStr1[k] == tempUpper || tempStr1[k]== tempChar)
+      if (tempStr1[k] == tempUpper || tempStr1[k]== tempLower)
       {
         countS1++;
       }
     }
 
-    char cLower = tempChar; // c is now lowercase no matter what
-    char cUpper = tempUpper; // uppercase char c or lowercase char c
 
     for (int j = 0; j < strlength; j++) //
     {
       char d = s2[j];
-      if (d == cLower || d == cUpper)
+      if (d == tempLower || d == tempUpper)
       {
         countS2++;
       }
