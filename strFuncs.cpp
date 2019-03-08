@@ -89,9 +89,6 @@ bool isAnagram(string s1, string s2)
  *You should provide a recursive solution*/
 bool isPalindrome(const string s1)
 {
-
-bool isPalindrome(const string s1)
-{
   char arrAlphabet[26][2] = {{'A','a'}, {'B','b'}, {'C','c'}, {'D','d'},
                     {'E','e'}, {'F','f'}, {'G','g'}, {'H','h'},
                     {'I','i'}, {'J','j'}, {'K','k'}, {'L','l'},
@@ -123,7 +120,7 @@ bool isPalindrome(const string s1)
         {
           tempLower = arrAlphabet[row][1]; // lowercase of char s1[i]
           tempUpper = arrAlphabet[row][0]; // uppercase of char s1[i]
-          break;
+	  break;
         }
       } // tempLoweris now lowercase
         // tempUpper is now uppercase
