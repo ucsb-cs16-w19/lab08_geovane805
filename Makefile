@@ -1,2 +1,2 @@
-strFuncs: strFuncs.h strFuncs.cpp
-	g++ -o strFuncs strFuncs.cpp strFuncs.h
+recLinkedListFuncs: recLinkedListFuncs.h linkedListFuncs.h recLinkedListFuncs.cpp linkedListFuncs.cpp
+	g++ -std=c++11 -o recLinkedListFuncs recLinkedListFuncs.cpp linkedListFuncs.cpp
