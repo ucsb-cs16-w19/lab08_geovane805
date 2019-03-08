@@ -8,22 +8,22 @@
 int recursiveSum(Node* head) 
 {
   int sum = 0;
-  sum = head->data;
+  sum = list->head->data;
 
   Node* tempHolder = new Node;
-  tempHolder->data = head->data; // holds previous sum
-  head = head->next; // points head to next address
-  if (head == NULL)
+  tempHolder->data = list->head->data; // holds previous sum
+  head = list->head->next; // points head to next address
+  if (list->head == NULL)
   {
     return 0;
   }
   else
   {
-  sum = tempHolder->data + head->data;
+  sum = tempHolder->data +list->head->data;
 
   Node* tempNode = new Node;
   tempNode->data = sum;
-  tempNode->next = head->next;
+  tempNode->next = list->head->next;
 
   return (recursiveSum(tempNode));
   }
